@@ -1137,7 +1137,7 @@
     "name": "Analog Clock XIV",
     "shortName": "Analog XIV",
     "icon":"wall-clock.png",
-    "version": "0.01",
+    "version": "0.02",
     "description": "Analog clock with various additions such as beat, day of year and Eorzean time",
     "tags": "clock",
     "type": "clock",
