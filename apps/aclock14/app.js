@@ -120,7 +120,7 @@ const drawDate = () => {
   // pad left date
   const dateString = ((currentDate.getDate() < 10) ? '0' : '') + currentDate.getDate();
   const dateDisplay = `${months[currentDate.getMonth()]}${dateString}`;
-  const dayofyear = monthdays(currentDate.getMonth(), ly(currentDate.getFullYear()));
+  const dayofyear = monthdays(currentDate.getMonth(), ly(currentDate.getFullYear())) + currentDate.getDate();
   g.setColor(0,1,0);
   g.drawString(weekdays[currentDate.getDay()], 4, widgetHeight+26, true);
   g.setColor(1,1,0);
