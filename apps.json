@@ -1145,5 +1145,16 @@
       {"name":"aclock14.app.js","url":"app.js"},
       {"name":"aclock14.img","url":"app-icon.js","evaluate":true}
     ]
+  },
+  { "id": "widbatp2",
+    "name": "Battery Widget (%)",
+    "icon": "widget.png",
+    "version":"0.01",
+    "description": "Display the battery percentage, visibly",
+    "tags": "widget,tools",
+    "type":"widget",
+    "storage": [
+      {"name":"widbatp2.wid.js","url":"widget.js"}
+    ]
   }
 ]
