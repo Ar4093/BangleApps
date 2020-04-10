@@ -21,13 +21,13 @@ WIDGETS = {};
   }
 
   // add your widget
-  WIDGETS.pbattery={
+  WIDGETS.widbatp2={
     area:"tr", // tl (top left), tr (top right), bl (bottom left), br (bottom right)
     width: 32, // how wide is the widget? You can change this and call Bangle.drawWidgets() to re-layout
     draw:draw // called to draw the widget
   };
 })();
 
-setInterval(() => WIDGETS.pbattery.draw(WIDGETS.pbattery), 5*60000);
+setInterval(() => WIDGETS.widbatp2.draw(WIDGETS.widbatp2), 5*60000);
 
 Bangle.drawWidgets();
