@@ -98,6 +98,7 @@ const getBeat = () => {
 };
 
 const onSecond = () => {
+  g.setSegFont();
   g.setColor(0, 0.5, 1);
   seconds((360 * currentDate.getSeconds()) / 60, false);
   if (currentDate.getSeconds() === 59) {
@@ -164,10 +165,9 @@ Bangle.on('lcdPower', (on) => {
   if (on) {
     // g.clear();
     init = true;
-    Bangle.drawWidgets();
-    g.setSegFont();
     drawAll();
     startTimers();
+    Bangle.drawWidgets();
   } else {
     if (timer) {
       clearInterval(timer);
