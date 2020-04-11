@@ -164,10 +164,10 @@ Bangle.on('lcdPower', (on) => {
   if (on) {
     // g.clear();
     init = true;
-    drawAll();
-    startTimers();
     Bangle.drawWidgets();
     g.setSegFont();
+    drawAll();
+    startTimers();
   } else {
     if (timer) {
       clearInterval(timer);
