@@ -1151,7 +1151,7 @@
     "name": "Digital Clock XIV",
     "shortName": "Digital XIV",
     "icon": "wall-clock.png",
-    "version": "0.04",
+    "version": "0.05",
     "description": "Digital Clock with various additions",
     "tags": "clock",
     "type": "clock",

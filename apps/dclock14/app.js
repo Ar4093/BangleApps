@@ -91,8 +91,8 @@ Bangle.on('lcdPower', (on) => {
   if (on) {
     // g.clear();
     init = true;
-    drawAll();
     startTimers();
+    onSecond();
     Bangle.drawWidgets();
   } else {
     if (timer) {
