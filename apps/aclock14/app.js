@@ -2,16 +2,10 @@
 let g;
 let Bangle;
 
+
+
 // segment font
-function dc(a,s) {
-  let e=s;
-  for(let x of a)
-    e = e.replace(new RegExp(x[0],"g"),x[1]);
-  return e;
-}
-const seg_s = atob(dc([ ["!","AAM"], ['"',"wMD"], ["%","wAD"], ["&","AAD"], ["=","AAA"], ["@","AMD"], ["#","wMA"] ],
-  '================PwMPwM======f4APw======APwAf4==Af/+P/8AM!AP/8P/8AM!AP/8f/+==f4Av8B""//////""gP9AH+==============f/+v/9""//////""gMB=======PwAPw======Af/+vz9%%%%%%gAB====gAB%%%%%%vz9f/+==============AA!!!AP/8P/8AM!!=======&8AD8======AA!!!!!!!!=======A!!======AH+AP8AM!!!!!AP8Af4==Af/+vz9%%%%%%vz9f/+==========Pz8f/+==AH+gP9""""""v8Bf4===AgMB""""""v/9f/+==f4AP0!!!!!!AP/8f/+==f4Av8B""""""gP9AH+==f/+v/9""""""gP9AH+==f4AvwAwAAwAAwAAwAAwAAwAAvz8f/+==f/+v/9""""""v/9f/+==f4Av8B""""""v/9f/+======AzAAz==========AAz8Az8==================AA!B@@@@@@AMB================gMA##wMMwMM##v8Af4==============Af/+v/8######v/8f/+===gAB%%//////""v/9f/+==f/+vz9%%%%%%gAB====gAB%%//////%%vz9f/+==f/+v/9""""""gMB===f/+v/8######gM===Af/+vz9%%%%%%gD9AH+==f/+P/8AM!!!!!AP/8f/+===gAB%%//////%%gAB===AH+AD9&&&&&&Pz9f/+==f/+Pz8=BhgDhwHA4OAcMAM====f/+Pz9&&&&&&AAB===f/+vz8wAAwAA/wA/wAwAAwAAvz8f/+==f/+vz8wAAwAAwAAwAAwAAwAAvz8f/+==f/+vz9%%%%%%vz9f/+==f/+v/8######v8Af4==Af/+vz9%%wD/wD/%%vz9f/+==f/+v/8#wNgwNwwM4wMcwMMv8Af4==Af4Av8B""""""gP9AH+===gAAwAAwAA/z8/z8wAAwAAg===AAf/+Pz9&&&&&&Pz9f/+==f/+Pz8=!AAcAA4ABwABgPwAf4==Af/+Pz9&&AD/AD/&&Pz9f/+===cAOfh+D/wAeAAeAD/wfh+cAO===f4AP8B@@@@@@P/9f/+==AH+gD9wYDw4DxwDzgD3AD2ADgAB===f/+vz9%%%%%%gAB===f4AP8!!!!!!AAP8AH+===gAB%%%%%%vz9f/+==f4AvwAwAAwAAwAAwAAwAAwAAvwAf4====B&&&&&&AAB===============f/+v/8######v/8f/+==f/+P/9@@@@@@AP9AH+==AH+AP9@@@@@@AMB===AH+AP9@@@@@@P/9f/+==f/+v/9""""""v8Bf4==Af/+v/8######gM===Af4Av8B""""""v/9f/+==f/+P/8AM!!!!!AAP8AH+======Az8Az8======AH+AD9&&&&&&Pz9f/+==f/+Pz8=BhgDhwHA4OAcMAM====f/+Pz9&&&&&&AAB===AH+AP8AM!AAP8AP8AM!AAP8AH+==AH+AP8AM!!!!!AAP8AH+==AH+AP9@@@@@@AP9AH+==f/+v/8######v8Af4==Af4Av8A######v/8f/+==AH+AP8AM!!!!!!===Af4Av8B""""""gP9AH+==f/+P/9@@@@@@AMB===AH+AD9&&&&&&AD9AH+==AH+AD8=!AAcAA4ABwABg====AH+AD9&&AD/AD/&&AD9AH+===cAOfh+D/wAeAAeAD/wfh+cAO===f4AP8B@@@@@@P/9f/+==AA!BAMbAMbAMzAMzANjANjAMB===f/+vz9%%%%%%gAB=======Pz8Pz8=======gAB%%%%%%vz9f/+=='));
-Graphics.prototype.setSegFont = function() { this.setFontCustom(seg_s, 32, 12, 18); };
+require("./fonts").add(Graphics);
 const weekdays = ["SO","MO","DI","MI","DO","FR","SA"];
 const months = ["JAN","FEB","MAR","APR","MAI","JUN","JUL","AUG","SEP","OKT","NOV","DEZ"];
 const monthdays = (m,ly) => [0,31,59,90,120,151,181,212,243,273,304,334][m]+(ly&&m>2?1:0);
@@ -80,9 +74,8 @@ const drawET = () => {
   let et = currentDate.getTime() * 20.571428571428573;
   let em = parseInt((et/60e3)%60);
   let eh = parseInt((et/3600e3)%24);
-  let ex = (eh<10?" ":"")+eh+":"+(em<10?"0":"")+em;
+  let ex = "ET"+(eh<10?" ":"")+eh+":"+(em<10?"0":"")+em;
   g.setColor(1, 0.3, 0);
-  g.drawString("ET", 212, 196);
   g.drawString(ex, 176, 216, true);
 };
 
@@ -98,7 +91,7 @@ const getBeat = () => {
 };
 
 const onSecond = () => {
-  g.setSegFont();
+  g.setFont8x15();
   g.setColor(0, 0.5, 1);
   seconds((360 * currentDate.getSeconds()) / 60, false);
   if (currentDate.getSeconds() === 59) {
@@ -112,7 +105,7 @@ const onSecond = () => {
   if(init || lastbeat < getBeat()) {
     g.setColor(0.5,0,1);
     lastbeat = getBeat();
-    g.drawString((lastbeat < 100?lastbeat<10?"00":"0":"")+lastbeat, 6, 216);
+    g.drawString((lastbeat < 100?lastbeat<10?"00":"0":"")+lastbeat, 6, 216, true);
   }
   init = false;
 };
@@ -176,13 +169,13 @@ Bangle.on('lcdPower', (on) => {
 });
 
 g.clear();
-g.setSegFont();
+g.setFont8x15();
 resetSeconds();
 startTimers();
 drawAll();
 Bangle.loadWidgets();
 Bangle.drawWidgets();
-g.setSegFont();
+g.setFont8x15();
 
 // Show launcher when middle button pressed
 setWatch(Bangle.showLauncher, BTN2, { repeat: false, edge: "falling" });
