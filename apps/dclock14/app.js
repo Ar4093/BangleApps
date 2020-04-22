@@ -102,12 +102,10 @@ Bangle.on('lcdPower', (on) => {
 });
 
 g.clear();
-g.setFont8x15();
 startTimers();
 onSecond();
 Bangle.loadWidgets();
 Bangle.drawWidgets();
-g.setFont8x15();
 
 // Show launcher when middle button pressed
 setWatch(Bangle.showLauncher, BTN2, { repeat: false, edge: "falling" });
