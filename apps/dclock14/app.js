@@ -5,7 +5,7 @@ let Bangle;
 
 
 // segment font
-require("./fonts").add(Graphics);
+require("fonts").add(Graphics);
 let init = true;
 const pos = {
   hrmin:{ x:  24, y:  30 },

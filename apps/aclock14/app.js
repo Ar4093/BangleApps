@@ -5,7 +5,7 @@ let Bangle;
 
 
 // segment font
-require("./fonts").add(Graphics);
+require("fonts").add(Graphics);
 const weekdays = ["SO","MO","DI","MI","DO","FR","SA"];
 const months = ["JAN","FEB","MAR","APR","MAI","JUN","JUL","AUG","SEP","OKT","NOV","DEZ"];
 const monthdays = (m,ly) => [0,31,59,90,120,151,181,212,243,273,304,334][m]+(ly&&m>2?1:0);
