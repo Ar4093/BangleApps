@@ -1137,14 +1137,13 @@
     "name": "Analog Clock XIV",
     "shortName": "Analog XIV",
     "icon":"wall-clock.png",
-    "version": "0.07",
+    "version": "0.08",
     "description": "Analog clock with various additions such as beat, day of year and Eorzean time",
     "tags": "clock",
     "type": "clock",
     "storage": [
       {"name":"aclock14.app.js","url":"app.js"},
-      {"name":"aclock14.img","url":"app-icon.js","evaluate":true},
-      {"name":"fonts.js","url":"modules/fonts.js"}
+      {"name":"aclock14.img","url":"app-icon.js","evaluate":true}
     ]
   },
   {
@@ -1152,14 +1151,13 @@
     "name": "Digital Clock XIV",
     "shortName": "Digital XIV",
     "icon": "wall-clock.png",
-    "version": "0.02",
+    "version": "0.03",
     "description": "Digital Clock with various additions",
     "tags": "clock",
     "type": "clock",
     "storage": [
       {"name":"dclock14.app.js","url":"app.js"},
-      {"name":"dclock14.img","url":"app-icon.js","evaluate":true},
-      {"name":"fonts.js","url":"modules/fonts.js"}
+      {"name":"dclock14.img","url":"app-icon.js","evaluate":true}
     ]
   },
   { "id": "widbatp2",
